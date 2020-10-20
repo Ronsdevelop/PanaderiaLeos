@@ -33,7 +33,7 @@ if(isset($_POST["txtOpcion"])&& $_POST["txtOpcion"]==1 ){
 
                 "Comprar" => "<button class='btn btn-sm btn-block btn-primary btn-editarPro' idProveedor='".$value['proveedor_id']."'><i class='fas fa-shopping-cart'></i></button> ",
 
-                "Ver" => "<a class='btn btn-sm btn-block btn-info btn-detalles' href='detallescliente/".$value['proveedor_id']."' idProveedor='".$value['proveedor_id']."'><i class='fas fa-eye'></i></a>",
+                "Ver" => "<a class='btn btn-sm btn-block btn-info btn-detalles' href='perfilproveedor/".$value['proveedor_id']."' idProveedor='".$value['proveedor_id']."'><i class='fas fa-eye'></i></a>",
 
                 "Editar" => "<button class='btn btn-sm btn-block btn-success btn-editarPro' idProveedor='".$value['proveedor_id']."'><i class='fas fa-edit'></i></button> ",
 

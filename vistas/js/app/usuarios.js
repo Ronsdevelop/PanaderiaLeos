@@ -60,6 +60,8 @@ tblUser =  $('#tablas').DataTable({
 EVENTO SUBMIT PARA AGREGAR Y EDITAR USUARIO
 ====================================== */
 
+/*
+
 const form = document.getElementById('formulario');
 form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -75,7 +77,7 @@ form.addEventListener('submit',function(e){
 
 
 })
-
+*/
  
 
 

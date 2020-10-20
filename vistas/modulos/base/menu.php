@@ -18,10 +18,10 @@
 
            
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a  href="<?php echo SERVERURL;?>inicio" class="nav-link <?php echo ($_GET["ruta"]=='inicio')? 'active':''?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Inicio
                  
               </p>
             </a>
@@ -37,8 +37,8 @@
             </a>
           </li>
    
-          <li class="nav-item has-treeview "> <!--menu-open-->
-            <a href="#" class="nav-link"><!--active-->
+          <li class="nav-item has-treeview <?php echo ($_GET["ruta"]=='proveedores')? 'menu-open':''?>"> <!--menu-open-->
+            <a href="#" class="nav-link <?php echo ($_GET["ruta"]=='proveedores')? 'active':''?>"><!--active-->
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Almacen
@@ -47,9 +47,32 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo SERVERURL;?>proveedores" class="nav-link"><!--active-->
+                <a href="<?php echo SERVERURL;?>proveedores" class="nav-link <?php echo ($_GET["ruta"]=='proveedores')? 'active':''?>"><!--active-->
                   <i class="far fa-circle nav-icon"></i>
                   <p>Proveedores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register</p>
+                </a>
+              </li> 
+            </ul>
+          </li>
+          <li class="nav-item has-treeview <?php echo ($_GET["ruta"]=='usuarios')? 'menu-open':''?>"> <!--menu-open-->
+            <a href="#" class="nav-link <?php echo ($_GET["ruta"]=='usuarios')? 'active':''?>"><!--active-->
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Usuarios
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo SERVERURL;?>usuarios" class="nav-link <?php echo ($_GET["ruta"]=='usuarios')? 'active':''?>"><!--active-->
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">

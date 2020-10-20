@@ -171,4 +171,77 @@ $(document).ready(function() {
 
 });
 
+
+
+ /* ------------------------- */
+ /* EDITAR PROVEEDOR  */
+ /* ------------------------- */ 
+ 
+ $(document).on("click",".btn-editarPro", function () {
+  let codProveedor = $(this).attr("idProveedor");
+  let opcion = 3;
+  let cabeceraModal = document.getElementById("diModal");
+  cabeceraModal.classList.remove("bg-dark");
+  cabeceraModal.classList.add("bg-success");
+ document.getElementById("tituloModal").innerText = "Editar Usuario";
+
+ document.getElementById("btnEditar").innerText = "Actualizar Usuario";
+ 
+ document.getElementById("txtOpcion").value = opcion;
+   const data = new FormData();
+   data.append('codigoProv',codProveedor);
+   $("#con-close-modal").modal("show");
+
+let url = "../ajax/proveedores.ajax.php";
+
+fetch(url,{
+    method:'POST',
+    body: data
+
+}).then(resp=> resp.json())
+.then(response =>cargarDatosProveedor(response));
+  
+});
+
+
+
+/* ------------------------- */
+/* FUNCION PARA ASIGNAR LOS DATOS A CADA ELEMENTO DEL MODAL EDITAR USURAIO*/
+/* ------------------------- */
+
+function cargarDatosProveedor(datos) {
+  document.getElementById("txtRazon").value = datos["rason"];
+  document.getElementById("txtDireccion").value = datos["direccion"];
+  document.getElementById("txtContacto").value = datos["contacto"];
+  document.getElementById("txtIndetificacion").value = datos["ruc"];
+  document.getElementById("txtCelular").value = datos["nCelular"];
+  document.getElementById("txtFijo").value = datos["nFono"];
+  document.getElementById("txtCorreo").value = datos["email"];
+  document.getElementById("txtReferencia").value = datos["referencia"];
+  document.getElementById("txtId").value = datos["proveedor_id"];
+   
+}
+
+/* ====================================== 
+EVENTO SUBMIT PARA EDITAR PROVEEDOR
+====================================== */
+
+const form = document.getElementById('formulario');
+form.addEventListener('submit',function(e){
+    e.preventDefault();
+    let data = new FormData(form); 
+    $("#con-close-modal").modal('hide');
+    fetch("../controladores/proveedor.controlador.php",
+        {method:"POST",
+        body:data}).then(response => response.text())
+                   .then(response =>                 
+                   console.log("ok"))
+                   
+
+
+
+})
+
+
+
  

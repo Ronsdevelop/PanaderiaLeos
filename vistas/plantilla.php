@@ -75,7 +75,7 @@ include "config/global.php";
                     $rutas[0]== "clientes"||
                     $rutas[0]=="salir"||
                     $rutas[0]=="productos"||
-                    $rutas[0]=="detallescliente") {
+                    $rutas[0]=="perfilproveedor") {
                     include "modulos/".$rutas[0].".php";  
                 }else{
                     include "modulos/404.php" ;

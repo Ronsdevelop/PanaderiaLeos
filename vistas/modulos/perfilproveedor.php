@@ -13,12 +13,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Detalles Proveedor</h1>
+            <h1 class="m-0 text-dark">Perfil del Proveedor</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item"><a href="#">Proveedores</a></li>
+              <li class="breadcrumb-item active">GRUPO FUMINSUMOS SAC</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -56,17 +57,17 @@
                   <!-- /.col aqui tambien -->
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
-                    <a id="edit-supplier" class="btn btn-block btn-primary" href="#" title="Supplier Products">
-                    <i class="fa fa-fw fa-list mr-2 t font-18 vertical-middle"></i>   Productos                 </a>
+                    <a id="edit-supplier" class="btn btn-block btn-primary" href="#" title="Lista de Productos">
+                    <i class="fa fa-list"></i>   Productos                 </a>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-4">
                     <div class="description-block">
-                    <a id="edit-supplier" class="btn btn-block btn-warning" href="#" title="EDITAR">
-                    <i class="fa fa-fw fa-edit mr-2 t font-18 vertical-middle"></i>
-                 </a>
+                    <button id="edit-supplier" class="btn btn-block btn-success btn-editarPro" idProveedor="<?php echo $codigo;?>" title="EDITAR">
+                    <i class="fas fa-edit text-light  "></i>
+                  </button>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -123,21 +124,14 @@
 
         <div class="row">
         <div class="col-12 col-sm-12">
-            <div class="card card-primary card-outline card-outline-tabs">
-              <div class="card-header p-0 border-bottom-0">
-                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">COMPRAS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">PENDIENTES POR PAGAR</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">ANALISIS</a>
-                  </li>
-                  
+            <div class="card ">
+            <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#acustom-tabs-four-tabContent" data-toggle="tab">Activity</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#custom-tabs-four-profile" data-toggle="tab">Timeline</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#custom-tabs-four-messages" data-toggle="tab">Settings</a></li>
                 </ul>
-              </div>
+              </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content" id="custom-tabs-four-tabContent">
                   <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
@@ -339,5 +333,99 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+    
+    <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div id="diModal" class="modal-content bg-dark">
+
+                                    <form role="form" id="formulario" enctype="multipart/form-data" autocomplete="off">
+                                    <div id="cabeceraM" class="modal-header">
+                                    
+                                    <h5 class="modal-title" id="tituloModal"><span class="fa fa-pencil-alt"></span> Agregar Proveedor</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="close" aria-hidden="true"><span aria-hidden="true">&times;</span></button></button>
+                                    </div>
+                                    <input type="hidden" id="txtOpcion" name="txtOpcion">
+                                    <input type="hidden" name="txtId" id="txtId">
+                                    <div class="modal-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="txtRazon" id="txtRazon" placeholder="Razon Social Proveedor">
+                                            
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-map-marked"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="txtDireccion" id="txtDireccion" placeholder="Direccion Proveedor">
+                                           
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="txtContacto" id="txtContacto" placeholder="Contacto para Consultas">
+                                              
+                                                    
+                                        </div>
+                                        <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txtIndetificacion" id="txtIndetificacion" placeholder="Ruc o Dni Proveedor">
+                                               
+                                        </div>
+                                        <div class="row">
+                                           
+   
+                                            <div class="col-md-6">
+                                            <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txtCelular" id="txtCelular" placeholder="Celular">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-phone-square"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="txtFijo" id="txtFijo" placeholder="Telefono fijo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                                </div>
+                                                <input type="email" class="form-control" name="txtCorreo" id="txtCorreo" placeholder="Direccion de email">
+                                             
+                                        </div>    
+                                          
+                                        <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-search-location"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" name="txtReferencia" id="txtReferencia" cols="30" rows="1" placeholder="Referencia del local"></textarea>
+                                     
+                                        </div>     
+                                        
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-outline-light " data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-outline-light" id="btnEditar">Guardar</button>
+                                    </div>
+ 
+                                    </form>
+                                    
+                                </div>
+                            </div>
+            </div><!-- /.modal --> 
+
+
+
   </div>
   <!-- /.content-wrapper -->
