@@ -1,6 +1,8 @@
 
  
 $(document).ready(function() {
+
+    /*
 tblUser =  $('#tablas').DataTable({
                     language: {
                         "sProcessing":     "Procesando...",
@@ -54,6 +56,8 @@ tblUser =  $('#tablas').DataTable({
                        {data: "Accion"}
                     
                     ]}); 
+
+                    */
 
  
 /* ====================================== 

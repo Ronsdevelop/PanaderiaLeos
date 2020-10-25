@@ -29,8 +29,8 @@ class ModeloProveedor{
 
 /* ----- REGISTRO DE USUARIO ----- */
 static public function MdlIngresarProveedor($tabla, $datos){
-
-    $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(rason,ruc,direccion,contacto,email,nCelular,nFono,referencia) VALUES(:rason,:ruc,:direccion,:contacto,:email,:nCelular,:nFono,:referencia);");
+ 
+    $stmt = Conexion::conectar()->prepare("CALL sp_ingresaProveedor(:rason,:ruc,:direccion,:contacto,:email,:nCelular,:nFono,:referencia)");
     $stmt->bindParam(":rason",$datos["rason"],PDO::PARAM_STR);
     $stmt->bindParam(":ruc",$datos["ruc"],PDO::PARAM_STR);
     $stmt->bindParam(":direccion",$datos["direccion"],PDO::PARAM_STR);

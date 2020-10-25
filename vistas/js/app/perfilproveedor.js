@@ -11,6 +11,7 @@ fetch(url,{
 
 }).then(resp=> resp.json())
 .then(datos=>{
+  document.getElementById("menucabe").innerHTML = datos["rason"]; 
   let infoprov =`            
   <h6><strong>CELULAR : </strong>${datos["nCelular"]}</h6>
   <h6><strong>TELEFONO : </strong>${datos["nFono"]}</h6>
@@ -27,6 +28,7 @@ fetch(url,{
   `  ;
   document.getElementById("cabeprov").innerHTML = cabeceraprov;
   document.getElementById("info").innerHTML = infoprov;
+
  
  
 
